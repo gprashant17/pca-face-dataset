@@ -16,8 +16,8 @@ function rep = SVD_Image(subject)
         A = [A, reshape(subject{i},s(1)*s(2),1)];
     end
 
-    % Mean Centering
-    A = (A-mean(A,1));
+    % Standardizing the data
+    A = (A-mean(A,1))/std(A,1);
     
     %SVD
     [U,S,V] = svd(A);
